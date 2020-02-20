@@ -48,8 +48,10 @@
 
   const optArticleSelector = '.post',
     optTitleSelector = '.post-title',
-    optTitleListSelector = '.titles';
-    optArticleTagsSelector = '.post-tags .list'
+    optTitleListSelector = '.titles',
+    optArticleTagsSelector = '.post-tags .list',
+    optTagsListSelector = '.list .tags',
+
 
   function generateTitleLinks(customSelector = ''){
 
@@ -85,30 +87,50 @@
   generateTitleLinks();
 
   function generateTags(){
+
   /* find all articles */
+    const articles = document.querySelectorAll(optArticleSelector);
 
-  /* START LOOP: for every article: */
 
-    /* find tags wrapper */
+    /* START LOOP: for every article: */
+    for (let article of articles) {
 
-    /* make html variable with empty string */
 
-    /* get tags from data-tags attribute */
+      /* find tags wrapper */
+      const tagList = article.querySelector(optArticleTagsSelector);
+      optArticleTagsSelector = '.post-tags .list',
+      /* make html variable with empty string */
+      let html = '';
 
-    /* split tags into array */
+      /* get tags from data-tags attribute */
+      const articleTags = article.getAttribute('data-tags');
+      console.log(articleTags);
+
+      /* split tags into array */
+      const articleTagsArray = articleTags.split(' ');
 
     /* START LOOP: for each tag */
+    for (let tag of articleTagsArray){
 
       /* generate HTML of the link */
+      const linkHTML = `<li><a href="#tag-${tag}"><span>${tag}</a></li>`;
+
+      //  const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
+      //  <li><a href="#tag-cat">cat</a></li>
+      //tag `string text ${expression} string text`
 
       /* add generated code to html variable */
+      html = html + linkHTML;
 
-    /* END LOOP: for each tag */
+      /* END LOOP: for each tag */
 
-    /* insert HTML of all the links into the tags wrapper */
+      /* insert HTML of all the links into the tags wrapper */
+      titleList.innerHTML = html;
 
-  /* END LOOP: for every article: */
-}
-
+        /* END LOOP: for every article: */
+    }
+    }
+  }
 generateTags();
+
 }
