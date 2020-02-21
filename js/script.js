@@ -53,7 +53,7 @@
     optTagsListSelector = '.list .tags',
 
 
-  function generateTitleLinks(customSelector = ''){
+  function generateTitleLinks(customSelector = '') {
 
     /* remove contents of titleList */
     const titleList = document.querySelector(optTitleListSelector);
@@ -86,7 +86,7 @@
   }
   generateTitleLinks();
 
-  function generateTags(){
+  function generateTags() {
 
   /* find all articles */
     const articles = document.querySelectorAll(optArticleSelector);
@@ -94,7 +94,6 @@
 
     /* START LOOP: for every article: */
     for (let article of articles) {
-
 
       /* find tags wrapper */
       const tagList = article.querySelector(optArticleTagsSelector);
@@ -123,12 +122,12 @@
       html = html + linkHTML;
 
       /* END LOOP: for each tag */
-
+      }
       /* insert HTML of all the links into the tags wrapper */
       titleList.innerHTML = html;
 
         /* END LOOP: for every article: */
-    }
+
     }
   }
 generateTags();
