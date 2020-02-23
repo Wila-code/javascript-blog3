@@ -203,5 +203,22 @@ addClickListenersToTags();
     }
     /* generate allAuthors with an empty object */
     let allAuthors = {};
+  }
+  
+  generateAuthors();
+
+  function addClickListenersToAuthors(){
+    /* find all links to author */
+    const authorLinks = document.querySelectorAll('a[href^="#author-"]');
+    /*start LOOP for each link*/
+    for(let authorLink of authorLinks){
+      /* add authorClickHandler as eventListener for that link */
+      authorLink.addEventListener('click', authorClickHandler);
+      /* END LOOP: for each link */
+    }
+  }
+   addClickListenersToAuthors();
+// function authorClickHandler
+
 
   }
