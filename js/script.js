@@ -62,6 +62,7 @@
 
     /* for each article */
     const articles = document.querySelectorAll(optArticleSelector + customSelector);
+    console.log(customSelector);
     for(let article of articles){
     /* get the article id */
       const articleId = article.getAttribute('id');
@@ -169,12 +170,14 @@
 
 function addClickListenersToTags(){
   /* find all links to tags */
+  const tagLinks = document.querySelectorAll('a[href^="#tag-"]');
 
   /* START LOOP: for each link */
-
+  for(let tagLink of tagLinks){
     /* add tagClickHandler as event listener for that link */
-
-  /* END LOOP: for each link */
+    tagLink.addEventListener('click', tagClickHandler);
+    /* END LOOP: for each link */
+  }
 }
 
 addClickListenersToTags();
