@@ -118,7 +118,6 @@
 
         /* generate HTML of the link */
         const linkHTML = `<li><a href="#tag-${tag}"><span>${tag}</a></li>`;
-
         //  const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
         //  <li><a href="#tag-cat">cat</a></li>
         //tag `string text ${expression} string text`
@@ -195,7 +194,7 @@ function addClickListenersToTags(){
 }
 
 addClickListenersToTags();
-}
+
 
   function generateAuthors() {
     /* find all articles */
@@ -210,7 +209,8 @@ addClickListenersToTags();
       /* get authors from data-authors attribute */
       const articleAuthor = article.getAttribute('data-author');
       /* generate HTML of the link */
-      //const linkHTML =
+      //const linkHTML = `<li><a href="#tag-${tag}"><span>${tag}</a></li>`;
+      const linkHTML = `<li><a href="#author-${author}"><span>${author}</a></li>`;
       /* add generated code to html variable */
       html = html + linkHTML;
       /* insert HTML of all the links into the author wrapper */
@@ -261,4 +261,5 @@ addClickListenersToTags();
     }
   }
    addClickListenersToAuthors();
-  }
+
+}
