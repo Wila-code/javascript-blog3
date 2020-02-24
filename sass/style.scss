@@ -117,8 +117,26 @@ body {
 
 .post-tags {
   display: flex;
-
   p {
     margin: 0 10px 0 0;
   }
+  li {
+    margin-right: 15px;
+  }
+}
+
+.tag-size-small {
+  font-size: 10px;
+  display:inline-block;
+}
+.tag-size-medium {
+  font-size: 20px;
+  display:inline-block;
+}
+.tag-size-big {
+  font-size: 30px;
+  display:inline-block;
+}
+.sidebar .tags li {
+  display: inline;
 }
