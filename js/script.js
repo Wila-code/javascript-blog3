@@ -117,10 +117,7 @@
       for (let tag of articleTagsArray){
 
         /* generate HTML of the link */
-        const linkHTML = `<li><a href="#tag-${tag}"><span>${tag}</a></li>`;
-        //  const linkHTML = '<li><a href="#' + articleId + '"><span>' + articleTitle + '</span></a></li>';
-        //  <li><a href="#tag-cat">cat</a></li>
-        //tag `string text ${expression} string text`
+        const linkHTML = `<li><a href="#tag-${tag}"><span>${tag}</span></a></li>`;
 
         /* add generated code to html variable */
         html = html + linkHTML;
@@ -202,25 +199,22 @@ addClickListenersToTags();
     /* START LOOP: for every article: */
     for (let article of articles) {
       /* find wrapper */
-      const titleList = article.querySelector(optArticleAuthorSelector);
-      titleList.innerHTML = '';
-      /* make html variable with empty string */
-      let html = '';
+      const authorWrapper = article.querySelector(optArticleAuthorSelector);
+      authorWrapper.innerHTML = '';
       /* get authors from data-authors attribute */
       const articleAuthor = article.getAttribute('data-author');
       /* generate HTML of the link */
       //const linkHTML = `<li><a href="#tag-${tag}"><span>${tag}</a></li>`;
-      const linkHTML = `<li><a href="#author-${author}"><span>${author}</a></li>`;
-      /* add generated code to html variable */
-      html = html + linkHTML;
+      const linkHTML = `by <a href="#author-${articleAuthor}"><span>${articleAuthor}</span></a>`;
       /* insert HTML of all the links into the author wrapper */
-      titleList.innerHTML = html;
+      authorWrapper.innerHTML = linkHTML;
     }
     /* generate allAuthors with an empty object */
     let allAuthors = {};
   }
-
   generateAuthors();
+
+  
   function authorClickHandler(event){
     /* prevent default action for this event */
     event.preventDefault();
