@@ -4,7 +4,6 @@ const templates = {
   authorLink: Handlebars.compile(document.querySelector('#template-author-link').innerHTML),
   tagCloudLink: Handlebars.compile(document.querySelector('#template-tag-cloud-link').innerHTML),
   authorRightList: Handlebars.compile(document.querySelector('#template-author-right-list').innerHTML),
-  
 };
 
 'use strict';
@@ -146,7 +145,10 @@ const templates = {
       /* [NEW] find list of tags in right column */
       const tagList = document.querySelector('.tags');
 
-      /* [NEW] add html from allTags to tagList */
+      /* [NEW] create variable for all links HTML code */
+      const allTagsData = {tags: []};
+
+      /* [NEW] START LOOP: for each tag in allTags: */
       let html= '';
       for(let tag in allTags) {
 
@@ -161,6 +163,21 @@ const templates = {
       }
       tagList.innerHTML = html;
 
+    /*Handlebars - ZAMIEN NA:
+
+    const tagList = document.querySelector('.tags');
+    const allTagsData = {tags: []};
+
+      for(let tag in allTags) {
+        allTagsData.tags.push({
+
+          tag: tag,
+          count: allTags[tag],
+          className: .....?
+      });
+
+      tagList.innerHTML = templates.tagCloudLink(allTagsData);
+*/
   }
   generateTags();
 
