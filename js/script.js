@@ -149,7 +149,7 @@ const templates = {
       const allTagsData = {tags: []};
 
       /* [NEW] START LOOP: for each tag in allTags: */
-      let html= '';
+      //let html= '';
       for(let tag in allTags) {
 
         let className = '';
@@ -157,27 +157,16 @@ const templates = {
         else if(allTags[tag] < 8) className = 'tag-size-medium';
         else className = 'tag-size-big';
 
-        console.log(className);
-
-        html += `<li class="${className}"><a href="#tag-${tag}"><span>${tag} (${allTags[tag]})</span></a></li>`;
-      }
-      tagList.innerHTML = html;
-
-    /*Handlebars - ZAMIEN NA:
-
-    const tagList = document.querySelector('.tags');
-    const allTagsData = {tags: []};
-
-      for(let tag in allTags) {
+        //html += `<li class="${className}"><a href="#tag-${tag}"><span>${tag} (${allTags[tag]})</span></a></li>`;
         allTagsData.tags.push({
+         tag: tag,
+         count: allTags[tag],
+         className: className,
+   });
+   tagList.innerHTML = templates.tagCloudLink(allTagsData);
 
-          tag: tag,
-          count: allTags[tag],
-          className: .....?
-      });
-
-      tagList.innerHTML = templates.tagCloudLink(allTagsData);
-*/
+        //html += `<li class="${className}"><a href="#tag-${tag}"><span>${tag} (${allTags[tag]})</span></a></li>`;
+      }
   }
   generateTags();
 
