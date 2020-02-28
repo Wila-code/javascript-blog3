@@ -142,31 +142,31 @@ const templates = {
 
       /* END LOOP: for every article: */
     }
-      /* [NEW] find list of tags in right column */
-      const tagList = document.querySelector('.tags');
+/* [NEW] find list of tags in right column */
+const tagList = document.querySelector('.tags');
 
-      /* [NEW] create variable for all links HTML code */
-      const allTagsData = {tags: []};
+/* [NEW] create variable for all links HTML code */
+const allTagsData = {tags: []};
 
-      /* [NEW] START LOOP: for each tag in allTags: */
-      //let html= '';
-      for(let tag in allTags) {
+    /* [NEW] START LOOP: for each tag in allTags: */
+    //let html= '';
+    for(let tag in allTags) {
 
-        let className = '';
-        if(allTags[tag] < 4) className = 'tag-size-small';
-        else if(allTags[tag] < 8) className = 'tag-size-medium';
-        else className = 'tag-size-big';
+      let className = '';
+      if(allTags[tag] < 4) className = 'tag-size-small';
+      else if(allTags[tag] < 8) className = 'tag-size-medium';
+      else className = 'tag-size-big';
 
-        //html += `<li class="${className}"><a href="#tag-${tag}"><span>${tag} (${allTags[tag]})</span></a></li>`;
-        allTagsData.tags.push({
-         tag: tag,
-         count: allTags[tag],
-         className: className,
-   });
-   tagList.innerHTML = templates.tagCloudLink(allTagsData);
+      //html += `<li class="${className}"><a href="#tag-${tag}"><span>${tag} (${allTags[tag]})</span></a></li>`;
+      allTagsData.tags.push({
+        tag: tag,
+        count: allTags[tag],
+        className: className,
+      });
+      tagList.innerHTML = templates.tagCloudLink(allTagsData);
 
-        //html += `<li class="${className}"><a href="#tag-${tag}"><span>${tag} (${allTags[tag]})</span></a></li>`;
-      }
+    //html += `<li class="${className}"><a href="#tag-${tag}"><span>${tag} (${allTags[tag]})</span></a></li>`;
+    }
   }
   generateTags();
 
@@ -186,8 +186,8 @@ const templates = {
     /* find all tag links with class active */
     const tagLinks = document.querySelectorAll('a.active[href^="#tag-"]');
 
-      /* START LOOP: for each active tag link */
-      for(let tagLink of tagLinks) {
+    /* START LOOP: for each active tag link */
+    for(let tagLink of tagLinks) {
     /* remove class active */
       tagLink.classList.remove('active');
     /* END LOOP: for each active tag link */
@@ -266,9 +266,9 @@ const templates = {
         count: allAuthors[author]
       });
     //  allAuthorsHTML += author + ' (' + allAuthors[author] + ') ';
-   }
+    }
     /*add html from allAuthorsHTML to authorList*/
-     authorList.innerHTML = templates.authorRightList(allAuthorsData);
+    authorList.innerHTML = templates.authorRightList(allAuthorsData);
   }
   generateAuthors();
 
